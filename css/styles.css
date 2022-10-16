@@ -1,1 +1,54 @@
+body *{
+    font-family: 'Open Sans', sans-serif;
+    color:#36454f;
+    line-height: 200%;
+}
 
+h1 {
+    font-weight: 1200;
+    text-align: center;
+    font-size: 100;
+    background-color: #A6DAE8
+}
+
+body {
+    background-color: #A6DAE8;
+}
+
+.page {
+    width: 1850px;
+    background-color: #ebf2f4;
+    margin: auto;
+    padding: 50px;
+    padding-top: 35px;
+}
+
+p{
+    line-height: 200%;
+}
+
+.vis-container {
+    width: 100%;
+}
+
+.description h2,
+h1 {
+    margin-top: 0px;
+    font-size: 100;
+}
+
+.description-right {
+    padding-left: 20px;
+}
+
+.description-left {
+    padding-right: 20px;
+}
+
+.pure-g {
+    margin-bottom: 40px;
+}
+
+.small-font {
+    font-size: 14px;
+}
