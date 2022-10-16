@@ -1,0 +1,72 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "height": 500,
+  "data": {
+    "url": "https://raw.githubusercontent.com/Sam-Halford/FIT3179/main/Assignment%202/code/happiness_year_transformed.csv"
+  },
+  "description": "Slope graph",
+  "transform": [
+    {
+      "filter": {
+        "field": "Country",
+        "oneOf": ["Switzerland", "Denmark", "Norway", "Iceland", "Finland"]
+      }
+    },
+    {"filter": {"field": "Happiness Rank", "range": [1, 4]}}
+  ],
+  "layer": [
+    {
+      "mark": "line",
+      "width": {"step": 50},
+      "encoding": {
+        "strokeWidth": {"value": "6"},
+        "x": {"field": "Year", "type": "ordinal", "scale": {"padding": 0}},
+        "y": {
+          "field": "Happiness Rank",
+          "type": "quantitative",
+          "scale": {"padding": 0, "domain": [1, 4]},
+          "sort": "descending",
+          "axis": {"values": [4, 3, 2, 1]}
+        },
+        "color": {"field": "Country", "type": "nominal"}
+      }
+    },
+    {
+      "mark": "circle",
+      "width": {"step": 150},
+      "encoding": {
+        "size":{"value": 250},
+        "x": {"field": "Year", "type": "ordinal", "scale": {"padding": 0.5}},
+        "y": {
+          "field": "Happiness Rank",
+          "type": "quantitative",
+          "scale": {"padding": 0, "domain": [1, 4]},
+          "sort": "descending",
+          "axis": {"values": [4, 3, 2, 1]}
+        },
+        "tooltip": [
+          {"field": "Year", "type": "ordinal", "title": "Year"},
+          {
+            "field": "Happiness Rank",
+            "type": "quantitative",
+            "title": "Happiness Rank"
+          },
+          {"field": "Country", "type": "ordinal", "title": "Country"}
+        ],
+        "color": {"field": "Country",
+        "type": "nominal",
+        "scale": {"range": ["#F08DA9", "#FEE3B8", "#EBC8D5", "#A6DAE8", "#B9B2DC"]}}
+      }
+    }
+  ],
+  "config": {
+    "axis": {
+      "labelFont": "sans-serif",
+      "labelFontSize": 20,
+      "labelPadding":10,
+      "titleFont": "sans-serif",
+      "titleFontSize": 30,
+      "titlePadding": 20
+    }
+  }
+}
